@@ -6,9 +6,7 @@ import { CharacterList } from "../components";
 import { getChars } from "../actions"
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
+  
 
   componentDidMount() {
     this.props.getChars();
@@ -17,6 +15,7 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
+      return <h1>Getting Characters...</h1>
     }
     return (
       <div className="CharactersList_wrapper">
@@ -37,6 +36,6 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps /* mapStateToProps replaces null here */,
   {
-    getChars/* action creators go here */
+    getChars /* action creators go here */
   }
 )(CharacterListView);
